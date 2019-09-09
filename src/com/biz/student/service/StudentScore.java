@@ -8,30 +8,28 @@ import com.biz.score.service.ScoreServiceImp;
 import com.biz.student.model.StudentVO;
 
 public class StudentScore {
-	List<StudentVO> studentS_Imp_List;
-	List<ScoreVO> scoreS_Imp_List;
+
 	StudentService student_S;
 	ScoreService score_S;
 	
 	public StudentScore() {
 		super();
-		//studentS_Imp=new ArrayList<StudentServiceImp>();
-		//scoreS_Imp=new ArrayList<ScoreServiceImp>();
+
 		student_S=new StudentServiceImp();
 		score_S=new ScoreServiceImp();
 	
 	}
 	
 	public void view(String strNum) {
-		//studentS_Imp_List=student_S.getStudentList();
-		//scoreS_Imp_List=score_S.getGradeList();
-		//student_S.getStudentList().get(0).getStrStudentNum();
-		/*for(StudentVO vo:student_S.getStudentList()) {
+		System.out.printf("---------------%s 학번의 정보-----------------------------\n",strNum);
+		System.out.println("학번\t이름\t영어\t국어\t수학\t총점\t평균");
+		System.out.println("--------------------------------------------------------");
+		for(StudentVO vo:student_S.getStudentList()) {
 			if(strNum.equalsIgnoreCase(vo.getStrStudentNum())) {
 				System.out.print(vo.getStrStudentNum()+"\t");
 				System.out.print(vo.getStrName()+"\t");
 			}
-		}*/
+		}
 		for(ScoreVO vo:score_S.getScoreList()) {
 			if(strNum.equalsIgnoreCase(vo.getStrStudentNum())) {
 				System.out.print(vo.getIntEng()+"\t");
@@ -39,8 +37,10 @@ public class StudentScore {
 				System.out.print(vo.getIntMath()+"\t");
 				System.out.print(vo.getIntTotal()+"\t");
 				System.out.print(vo.getIntAvg()+"\n");
+				
 			}
 		}
+		System.out.println("--------------------------------------------------------");
 	}
 	
 }

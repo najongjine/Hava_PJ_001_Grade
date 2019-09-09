@@ -8,8 +8,8 @@ import java.util.Random;
 import com.biz.score.model.ScoreVO;
 
 public class ScoreServiceImp implements ScoreService {
-	List<ScoreVO> scoreList;
-	int count;
+	protected static List<ScoreVO> scoreList;
+	private int count;
 	
 	public ScoreServiceImp(List<ScoreVO> scoreList) {
 		super();
